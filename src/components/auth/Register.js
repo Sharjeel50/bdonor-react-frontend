@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { AppProvider, Button, TextField, FormLayout, Form, Checkbox } from '@shopify/polaris';
+import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/register.css';
+
+
 
 class Register extends Component {
 
@@ -10,64 +14,39 @@ class Register extends Component {
     address: '',
     postcode: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   }
-
-  onChange = (e) => {
-    this.setState({
-      [e.target.id] : e.target.value
-    })
-    console.log(this.state);
-  }
-
-  onSubmit = (e) => {
-    e.preventDefault();
-  }
-
-  componentDidMount
 
   render() {
+
+    const {bloodGroup, firstname, lastname, email, address, postcode, password, confirmPassword, rememberMe} = this.state;
+
     return (
-      <div className="App">
-      <form className="" action="index.html" method="post">
-        <h1>Register</h1>
-        <div className="input-field">
-          <label htmlFor="bloodGroup">Blood Group</label>
-          <input type="bloodGroup" id = "bloodGroup" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="firstname">Firstname</label>
-          <input type="firstname" id = "firstname" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="lastname">Lastname</label>
-          <input type="lastname" id = "lastname" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="email">Email</label>
-          <input type="email" id = "email" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="address">Address</label>
-          <input type="address" id = "address" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="postcode">Postcode</label>
-          <input type="postcode" id = "postcode" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="password">Password</label>
-          <input type="password" id = "password" onChange = {this.onChange}/>
-        </div>
-        <div className="input-field">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input type="confirmPassword" id = "confirmPassword" onChange = {this.onChange}/>
-        </div>
-        <button type="button" className="button">Register</button>
-      </form>
-      </div>
+      <AppProvider>
+        <Form onSubmit={this.handleSubmit}>
+          <FormLayout>
+              <TextField value={bloodGroup} onChange={this.handleChange('bloodGroup')} label="Blood Group" type="bloodGroup" helpText={ <span> Leave blank if unknown. </span> } />
+              <TextField value={firstname} onChange={this.handleChange('firstname')} label="Firstname" type="firstname"/>
+              <TextField value={lastname} onChange={this.handleChange('lastname')} label="Lastname" type="lastname"/>
+              <TextField value={email} onChange={this.handleChange('email')} label="Email" type="email"/>
+              <TextField value={address} onChange={this.handleChange('address')} label="Adress" type="address"/>
+              <TextField value={postcode} onChange={this.handleChange('postcode')} label="Post code" type="postcode"/>
+              <TextField value={password} onChange={this.handleChange('password')} label="Password" type="password"/>
+              <TextField value={confirmPassword} onChange={this.handleChange('confirmPassword')} label="Confirm password" type="confirmPassword"/>
+            <Button submit>Submit</Button>
+          </FormLayout>
+        </Form>
+      </AppProvider>
     );
   }
+
+  handleSubmit = (event) => {
+    this.setState({bloodGroup: '', firstname: '', lastname: '', email: '', address: '', postcode: '', password: '', confirmPassword: '', newsletter: false});
+  };
+
+  handleChange = (field) => {
+    return (value) => this.setState({[field]: value});
+  };
 }
 
 export default Register;
