@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import DateComponent from 'C:/Users/Sharjeel Jan/Desktop/bdonor-frontend/src/components/dashboard/dateComponent.js';
 
 class Dashboard extends Component {
 
@@ -8,18 +9,12 @@ class Dashboard extends Component {
     User: []
   }
 
-  async componentDidMount() {
-    const getAll = await fetch('/getAll');
-    const body = await getAll.json();
-    this.setState({User: body, isLoading: false});
-  }
-
+  
   render() {
-
-    
 
     return (
       <div className="App">
+        <DateComponent/>
       </div>
     );
   }

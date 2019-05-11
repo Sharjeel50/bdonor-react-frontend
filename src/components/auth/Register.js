@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppProvider, Button, TextField, FormLayout, Form, Checkbox } from '@shopify/polaris';
-import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/register.css';
+// import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/register.css';
 
 
 
