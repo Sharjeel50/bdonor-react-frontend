@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AppProvider, Button, TextField, FormLayout, Form, Checkbox } from '@shopify/polaris';
+import axios from 'axios';
 // import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/login.css';
 
 
@@ -34,6 +35,18 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     this.setState({firstname: '', email: '', password: '', rememberMe: false});
+
+    var UserLogin = {
+      firstname: this.state.firstname,
+      email: this.state.email,
+      password: this.state.password
+    }
+
+    axios.get('http://localhost:8020/login/firstName/email/password', {UserLogin.firstname}, {UserLogin.email}, {UserLogin.password})
+    .then(res => {
+      console.log(res);
+    })
+
   };
 
   handleChange = (field) => {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppProvider, Button, TextField, FormLayout, Form, Checkbox } from '@shopify/polaris';
 // import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/register.css';
-
+import axios from 'axios';
 
 
 class Register extends Component {
@@ -41,10 +41,21 @@ class Register extends Component {
   }
 
   handleSubmit = (event) => {
-    this.setState({bloodGroup: '', firstname: '', lastname: '', email: '', address: '', postcode: '', password: '', confirmPassword: '', newsletter: false});
-  };
+      this.setState({bloodGroup: '', firstname: '', lastname: '', email: '', address: '', postcode: '', password: '', confirmPassword: ''});
 
-  handleChange = (field) => {
+      let User = {
+        bloodGroup: this.state.bloodGroup,
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        email: this.state.email,
+        address: this.state.address,
+        postcode: this.state.postcode,
+        password: this.state.password
+      }
+
+      axios.post('http://localhost:8020/create/bloodGroup/firstName/lastName/email/password/addressline/postcode', {User.bloodGroup}, {User.firstname},{User.lastname},{User.email},{User.password},{User.address},{User.postcode});
+
+      handleChange = (field) => {
     return (value) => this.setState({[field]: value});
   };
 }
