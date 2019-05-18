@@ -43,19 +43,7 @@ class Dashboard extends Component {
                 </Card.Section>
               </Card>
 
-              <Card sectioned>
-                <TextContainer>
-                  <SkeletonDisplayText size="small" />
-                  <SkeletonBodyText />
-                </TextContainer>
-              </Card>
 
-              <Card sectioned>
-                <TextContainer>
-                  <SkeletonDisplayText size="small" />
-                  <SkeletonBodyText />
-                </TextContainer>
-              </Card>
 
             </Layout.Section>
             <Layout.Section secondary>
@@ -82,6 +70,31 @@ class Dashboard extends Component {
                 </Card.Section>
               </Card>
             </Layout.Section>
+
+            <Layout.Section oneHalf>
+              <Card title="Google API Service" actions={[{content: '-----'}]}>
+                <Card.Section>
+                  <TextStyle variation="subdued"></TextStyle>
+                </Card.Section>
+                <Card.Section title="Items">
+                </Card.Section>
+              </Card>
+            </Layout.Section>
+
+          <Layout.Section oneThird>
+            <Card title="Florida" actions={[{content: 'Manage'}]}>
+              <Card.Section>
+              </Card.Section>
+            </Card>
+          </Layout.Section>
+
+          <Layout.Section oneThird>
+            <Card title="Florida" actions={[{content: 'Manage'}]}>
+              <Card.Section>
+              </Card.Section>
+            </Card>
+          </Layout.Section>
+
           </Layout>
 
       </SkeletonPage>
