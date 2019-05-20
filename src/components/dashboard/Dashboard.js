@@ -1,104 +1,80 @@
-import React, { Component } from 'react';
-import {ActionList, Popover, Button, AppProvider, Card, Frame, Label, List, Navigation, TopBar, DisplayText, Layout, Page, SkeletonBodyText, SkeletonDisplayText, SkeletonPage, TextContainer,  ResourceList, TextStyle, Thumbnail} from '@shopify/polaris';
-import DateComponent from 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/components/dashboard/DateComponent.js';
+import React, { Component } from "react";
+import {
+  ActionList,
+  Popover,
+  Button,
+  AppProvider,
+  Card,
+  Frame,
+  Label,
+  List,
+  Navigation,
+  TopBar,
+  DisplayText,
+  Layout,
+  Page,
+  SkeletonBodyText,
+  SkeletonDisplayText,
+  SkeletonPage,
+  TextContainer,
+  ResourceList,
+  TextStyle,
+  Thumbnail
+} from "@shopify/polaris";
+import DateComponent from "./DateComponent.js";
+import HospitalListsComponent from "./HospitalList.js";
+import GoogleMaps from "./GoogleMapsComponent.js";
 
 class Dashboard extends Component {
-
-  state = {
-  };
+  state = {};
 
   render() {
     return (
       <AppProvider>
-      <div style={{height: '250px'}}>
-      <SkeletonPage primaryAction secondaryActions={2}>
-          <Layout>
+        <div style={{ height: "250px" }}>
+          <SkeletonPage primaryAction secondaryActions={2}>
+            <Layout>
+              <Layout.Section>
+                <Card>
+                  <Card.Header
+                    actions={[
+                      {
+                        content: "Dates"
+                      },
+                      {
+                        content: "Add Event"
+                      }
+                    ]}
+                  />
+                  <Card.Section>
+                    <DateComponent />
+                  </Card.Section>
+                  <Card.Section title="Appointments">
+                    <p>
+                      Will need to add Appointments in a list here, when they
+                      are clicked, they will navigate to the date on the
+                      calender, onlick will also show all the appoitments on the
+                      current day via a popup or whatever looks best // TODO
+                    </p>
+                  </Card.Section>
+                </Card>
+              </Layout.Section>
+              <Layout.Section>
+                <Card>
+                  <HospitalListsComponent />
+                </Card>
+              </Layout.Section>
+            </Layout>
             <Layout.Section>
-
-              <Card sectioned>
-              <Card.Section>
-                <p>BDonor</p>
-              </Card.Section>
-              </Card>
-
-              <Card>
-                <Card.Header
-                  actions={[
-                    {
-                      content: 'Dates',
-                    },
-                    {
-                      content: 'Add Event'
-                    }
-                  ]}
-                >
-                </Card.Header>
+              <Card title="Donors">
                 <Card.Section>
-                  <DateComponent/>
+                  <TextStyle variation="subdued" />
                 </Card.Section>
-                <Card.Section title="Appointments">
-                  <p>
-                    Will need to add Appointments in a list here, when they are clicked, they will navigate to the date on the calender, onlick will also show all the appoitments on the current day via a popup or whatever looks best // TODO
-                  </p>
-                </Card.Section>
-              </Card>
-
-
-
-            </Layout.Section>
-            <Layout.Section secondary>
-              <Card>
-                <Card.Section>
-                  <TextContainer>
-                    <SkeletonDisplayText size="small" />
-                    <SkeletonBodyText lines={2} />
-                  </TextContainer>
-                </Card.Section>
-                <Card.Section>
-                  <SkeletonBodyText lines={1} />
-                </Card.Section>
-              </Card>
-              <Card subdued>
-                <Card.Section>
-                  <TextContainer>
-                    <SkeletonDisplayText size="small" />
-                    <SkeletonBodyText lines={2} />
-                  </TextContainer>
-                </Card.Section>
-                <Card.Section>
-                  <SkeletonBodyText lines={2} />
-                </Card.Section>
+                <GoogleMaps />
               </Card>
             </Layout.Section>
-
-            <Layout.Section oneHalf>
-              <Card title="Google API Service" actions={[{content: '-----'}]}>
-                <Card.Section>
-                  <TextStyle variation="subdued"></TextStyle>
-                </Card.Section>
-                <Card.Section title="Items">
-                </Card.Section>
-              </Card>
-            </Layout.Section>
-
-          <Layout.Section oneThird>
-            <Card title="Florida" actions={[{content: 'Manage'}]}>
-              <Card.Section>
-              </Card.Section>
-            </Card>
-          </Layout.Section>
-
-          <Layout.Section oneThird>
-            <Card title="Florida" actions={[{content: 'Manage'}]}>
-              <Card.Section>
-              </Card.Section>
-            </Card>
-          </Layout.Section>
-
-          </Layout>
-
-      </SkeletonPage>
-      </div>
+          </SkeletonPage>
+        </div>
       </AppProvider>
     );
   }
