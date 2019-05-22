@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import {
   Card,
   AppProvider,
@@ -9,8 +10,6 @@ import {
   Checkbox,
   Layout
 } from "@shopify/polaris";
-import axios from "axios";
-// import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/login.css';
 
 class Login extends Component {
   state = {

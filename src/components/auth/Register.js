@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import {
   AppProvider,
   Button,
@@ -9,8 +10,7 @@ import {
   Layout,
   Card
 } from "@shopify/polaris";
-// import 'C:/Users/Sharjeel Jan/Desktop/bdonor-react-frontend/src/css/auth/register.css';
-import axios from "axios";
+
 
 class Register extends Component {
   state = {

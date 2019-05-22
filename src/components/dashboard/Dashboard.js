@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import DateComponent from "./DateComponent.js";
+import HospitalListsComponent from "./HospitalList.js";
+import GoogleMaps from "./GoogleMapsComponent.js";
+import DonorChartComponent from './DonorChart.js'
 import {
   ActionList,
   Popover,
@@ -21,9 +25,7 @@ import {
   TextStyle,
   Thumbnail
 } from "@shopify/polaris";
-import DateComponent from "./DateComponent.js";
-import HospitalListsComponent from "./HospitalList.js";
-import GoogleMaps from "./GoogleMapsComponent.js";
+
 
 class Dashboard extends Component {
   state = {};
@@ -62,6 +64,18 @@ class Dashboard extends Component {
               <Layout.Section>
                 <Card>
                   <HospitalListsComponent />
+                </Card>
+              </Layout.Section>
+
+              <Layout.Section>
+
+                <Card>
+                <Card.Section>
+                <p>
+                  Blood Donors
+                </p>
+                </Card.Section>
+                  <DonorChartComponent />
                 </Card>
               </Layout.Section>
             </Layout>

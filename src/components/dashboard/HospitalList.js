@@ -30,6 +30,7 @@ class HospitalResourceList extends Component {
     const shortcutActions = latestOrderUrl
       ? [{ content: "View Donor Requests", url: latestOrderUrl }]
       : null;
+
     return (
       <ResourceList.Item
         id={id}
@@ -53,13 +54,20 @@ class HospitalResourceList extends Component {
       plural: 'Hospitals',
     };
 
-    const items = [
+    const items = [                          // Will need to change this to all hospitals
       {
         id: 341,
         url: "customers/341",
         name: "Mae Jemison",
         location: "Decatur, USA",
         latestOrderUrl: "orders/1456"
+      },
+      {
+        id: 256,
+        url: "customers/256",
+        name: "Ellen Ochoa",
+        location: "Los Angeles, USA",
+        latestOrderUrl: "orders/1457"
       },
       {
         id: 256,
